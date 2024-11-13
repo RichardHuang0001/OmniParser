@@ -1,0 +1,13 @@
+在环境配置完成后，在执行脚本进行数据转换的那一步，遇到这个跟libiomp5md.dll有关的问题，去C:\ProgramData\anaconda3\Library\bin\  这个目录，删掉 libiomp5md.dll这个文件，就能执行了
+
+
+
+运行demo的时候遇到这样的报错：
+
+PS C:\Users\HuangWei\Desktop\pythonProject\OmniParser> & C:/ProgramData/Anaconda3/envs/omni/python.exe c:/Users/HuangWei/Desktop/pythonProject/OmniParser/my_new_demo.py
+OMP: Error #15: Initializing libiomp5md.dll, but found libiomp5md.dll already initialized.
+OMP: Hint This means that multiple copies of the OpenMP runtime have been linked into the program. That is dangerous, since it can degrade performance or cause incorrect results. The best thing to do is to ensure that only a single OpenMP runtime is linked into the process, e.g. by avoiding static linking of the OpenMP runtime in any library. As an unsafe, unsupported, undocumented workaround you can set the environment variable KMP_DUPLICATE_LIB_OK=TRUE to allow the program to continue to execute, but that may cause crashes or silently produce incorrect results. For more information, please see http://www.intel.com/software/products/support/.
+PS C:\Users\HuangWei\Desktop\pythonProject\OmniParser> 
+
+如果遇到这个跟libiomp5md.dll有关的问题，先执行这条命令：
+set KMP_DUPLICATE_LIB_OK=TRUE

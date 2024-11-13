@@ -1,3 +1,7 @@
+
+import os
+os.environ["KMP_DUPLICATE_LIB_OK"] = "TRUE"
+
 import torch
 from ultralytics.nn.tasks import DetectionModel
 from safetensors.torch import load_file
